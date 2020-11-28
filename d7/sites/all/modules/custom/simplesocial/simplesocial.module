@@ -1,0 +1,155 @@
+<?php
+
+function simplesocial_block_info(){
+  $blocks['simplesocialScripts'] = array(
+    'info' => t('Simple Social Scripts'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['simplesocialSmall'] = array(
+    'info' => t('Simple Social Small buttons'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['simplesocialTop'] = array(
+    'info' => t('Simple Social Horizontal 1'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['simplesocialMini'] = array(
+    'info' => t('Simple Social Mini buttons'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['simplesocialFloating'] = array(
+    'info' => t('Simple Social Floating'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['simplesocialBottom'] = array(
+    'info' => t('Simple Social Horizontal 2'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  return $blocks;
+}
+
+function simplesocial_block_view($delta= ''){
+  switch ($delta) {
+    case 'simplesocialScripts':
+      $block['subject'] = '<none>';
+
+      // @TODO implement twitter cards. This need some fields to be processed in the html header, so it does not work well with views. Maybe later
+      /*$block['content'] = '
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="">
+        <meta name="twitter:title" content="Testing summary card title">
+        <meta name="twitter:description" content="Testing Summary card description, should be up to 200 char">
+        <meta name="twitter:creator" content="">
+        <meta name="twitter:image:src" content="http://mindgoneviral.com/sites/files/mgv/styles/detail__560x_/public/video_embed_field_thumbnails/youtube/C058wv48oms.jpg?itok=Qa1g_C-S">';*/
+      //Twitter
+      $block['content'] =  "<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>";
+      //g+
+      $block['content'] .= '<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>';
+      //facebook
+      $block['content'] .= '
+      <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, \'script\', \'facebook-jssdk\'));</script> ';
+      break;
+
+    case 'simplesocialSmall':
+      global $base_url;
+      $block['subject'] = '<none>';
+      $block['content'] = array(
+        '#title' => t('Simple Social links'),
+      );
+      $block['content'] = '
+        <div>
+          <div style="float:left">
+            <div class="fb-like" data-href="https://www.facebook.com/mindgoneviral" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
+            <div class="fb-share-button" data-href="'.$base_url.'/'.drupal_lookup_path( 'alias',current_path()).'" data-type="button_count"></div>
+          </div>
+          <div style="clear:both"></div>
+          <div style="float:left">
+            <g:plusone></g:plusone>
+          </div>
+          <div style="float:left">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="'.$base_url.'/'.drupal_lookup_path( 'alias',current_path()).'" data-via="justamancr">Tweet</a>
+          </div>
+        </div>
+      ';
+      break;
+
+    case 'simplesocialTop':
+      global $base_url;
+      $block['subject'] = '<none>';
+      $block['content'] = '
+        <div class="social-share-buttons social-top">
+          <!-- FACEBOOK SHARE -->
+          <a id="fb-share" class="facebook facebook-large" href="#" onclick="javascript:void window.open(\'http://www.facebook.com/sharer/sharer.php?u='.$base_url.'/'.drupal_lookup_path( 'alias',current_path()).'&t=yipeeyikay\',\'test\',\'width=650,height=280,toolbar=0,menubar=0,location=0,status=0,scrollbars=0,resizable=1,left=0,top=0\');return false;" target="_blank">
+          Share on Facebook</a>
+           <!-- /END FACEBOOK SHARE -->
+           <!-- TWITTER SHARE -->
+            <a id="twitter-share" class="twitter twitter-large" href="#" onclick="javascript:void window.open(\'http://twitter.com/share?url=http%3A//'.$base_url.'/'.drupal_lookup_path( 'alias',current_path()).'&amp;via=justamancr\',\'test\',\'width=500,height=252,toolbar=0,menubar=0,location=0,status=1,scrollbars=0,resizable=1,left=0,top=0\');return false;" target="_blank">
+            Share on Twitter</a>
+          <!-- /END TWITTER SHARE -->
+        </div>
+        <div style="clear:both;"></div>
+      ';
+      break;
+
+    case 'simplesocialMini':
+      global $base_url;
+      $block['subject'] = '<none>';
+      $block['content'] = '
+      <div class="simple-social-mini">
+        <div class="social-item"><a class="fb-share" href="#" onclick="javascript:void 
+window.open(\'http://www.facebook.com/sharer/sharer.php?u='.$base_url.'/'.drupal_lookup_path( 
+'alias',current_path()).'&t=yipeeyikay\',\'test\',\'width=650,height=280,toolbar=0,menubar=0,location=0,status=0,scrollbars=0,resizable=1,left=0,top=0\');return false;" 
+target="_blank"></a></div>
+        <div class="social-item"><a class="twitter" href="#" onclick="javascript:void window.open(\'http://twitter.com/share?url='.$base_url.'/'.drupal_lookup_path( 
+'alias',current_path()).'&via=justamancr\',\'test\',\'width=500,height=252,toolbar=0,menubar=0,location=0,status=1,scrollbars=0,resizable=1,left=0,top=0\');return false;" 
+target="_blank"></a></div>
+        <div class="social-item"><a class="gplus" href="#" onclick="javascript:void window.open(\'http://plus.google.com/share?url='.$base_url.'/'.drupal_lookup_path( 
+'alias',current_path()).'+title\',\'Gplus Window\',\'width=500,height=252,toolbar=0,menubar=0,location=0,status=1,scrollbars=0,resizable=1,left=0,top=0\');return false;" 
+target="_blank"></a></div>
+      </div>
+      ';
+      break;
+
+    case 'simplesocialFloating':
+      global $base_url;
+      $block['subject'] = '<none>';
+      $block['content'] = '
+        <div class="social-share-buttons social-float">
+          <!-- FACEBOOK SHARE -->
+          <a id="fb-share" class="facebook facebook-large" href="#" onclick="javascript:void window.open(\'http://www.facebook.com/sharer/sharer.php?u='.$base_url.'/'.drupal_lookup_path( 'alias',current_path()).'&t=yipeeyikay\',\'test\',\'width=650,height=280,toolbar=0,menubar=0,location=0,status=0,scrollbars=0,resizable=1,left=0,top=0\');return false;" target="_blank">
+          </a>
+           <!-- /END FACEBOOK SHARE -->
+           <!-- TWITTER SHARE -->
+            <a id="twitter-share" class="twitter twitter-large" href="#" onclick="javascript:void window.open(\'http://twitter.com/share?url=http%3A//'.$base_url.'/'.drupal_lookup_path( 'alias',current_path()).'&amp;via=justamancr\',\'test\',\'width=500,height=252,toolbar=0,menubar=0,location=0,status=1,scrollbars=0,resizable=1,left=0,top=0\');return false;" target="_blank">
+            </a>
+          <!-- /END TWITTER SHARE -->
+        </div>
+     ';
+      break;
+    case 'simplesocialBottom':
+      global $base_url;
+      $block['subject'] = '<none>';
+      $block['content'] = '
+        <div class="social-share-buttons social-bottom">
+          <!-- FACEBOOK SHARE -->
+          <a id="fb-share" class="facebook facebook-large" href="#" onclick="javascript:void window.open(\'http://www.facebook.com/sharer/sharer.php?u='.$base_url.'/'.drupal_lookup_path( 'alias',current_path()).'&t=yipeeyikay\',\'test\',\'width=650,height=280,toolbar=0,menubar=0,location=0,status=0,scrollbars=0,resizable=1,left=0,top=0\');return false;" target="_blank">
+          Share on Facebook</a>
+           <!-- /END FACEBOOK SHARE -->
+           <!-- TWITTER SHARE -->
+            <a id="twitter-share" class="twitter twitter-large" href="#" onclick="javascript:void window.open(\'http://twitter.com/share?url=http%3A//'.$base_url.'/'.drupal_lookup_path( 'alias',current_path()).'&amp;via=justamancr\',\'test\',\'width=500,height=252,toolbar=0,menubar=0,location=0,status=1,scrollbars=0,resizable=1,left=0,top=0\');return false;" target="_blank">
+            Share on Twitter</a>
+          <!-- /END TWITTER SHARE -->
+        </div>
+     ';
+      break;
+
+  }
+  return $block;
+}

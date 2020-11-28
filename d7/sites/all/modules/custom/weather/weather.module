@@ -1,0 +1,102 @@
+<?php
+/**
+ * Implements hook_block_info().
+ */
+function weather_block_info() {
+    $blocks = array();
+
+    $blocks['weather'] = array(
+        'info' => t('weather'),
+        'region' => 'sidebar_first',
+        'status' => TRUE,
+        'weight' => 0,
+        'cache' => DRUPAL_NO_CACHE,
+    );
+
+    return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function weather_block_view($delta = '') {
+    $block = array();
+
+    switch ($delta) {
+        case 'weather':
+            // TODO: this is the easy way to filter out non-logged users
+            // The right way would be using roles, as this disable admins from changing the behavior on admin interface
+            // Based on the premise this code runs only for internal use in a company that have developers and
+            // it is intended for a high performance environment, a simple "if" will suffice
+            // This type of comment would not go in code, but on issue tracker instead.
+            // Leaving first line and issue ID or URL
+            if ( (bool)$GLOBALS['user']->uid ){
+
+            $block['subject'] = 'Weather block!';
+            $block['content'] = block_content_weather();
+            }else{
+                return;
+            }
+            break;
+    }
+
+    return $block;
+}
+
+function block_content_weather() {
+
+    $user_fields = user_load($GLOBALS['user']->uid);
+    if ( isset ($user_fields->field_user_weather_message['und'][0]['value'] )  ){
+        $weather_login_msg = $user_fields->field_user_weather_message['und'][0]['value'];
+    }else{
+        $weather_login_msg = t('You last logged in at: ');
+    }
+
+    $output = $weather_login_msg.format_date($GLOBALS['user']->login,'small');
+    return $output;
+}
+
+
+/**
+ * Implements hook_install().
+ *
+ */
+function weather_install() {
+    // Check if our field is not already created.
+    // I wonder if this should be a hook_install or a hook_enable
+    // I also wonder if I should create a hook_uninstall
+    if (!field_info_field('field_user_weather_message')) {
+
+        // Create the field base.
+        $field = array(
+            'field_name' => 'field_user_weather_message',
+            'type' => 'text',
+        );
+        field_create_field($field);
+
+        // Create the field instance on the bundle.
+        $instance = array(
+            'field_name' => 'field_user_weather_message',
+            'entity_type' => 'user',
+            'label' => 'Weather custom message',
+            'bundle' => 'user',
+            'required' => FALSE,
+            'settings' => array(
+                'user_register_form' => 1,
+            ),
+            'widget' => array(
+                'type' => 'textfield',
+            ),
+        );
+        field_create_instance($instance);
+    }
+}
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function weather_ctools_plugin_directory($module, $plugin) {
+    if (($module == 'ctools' || $module == 'panels') && !empty($plugin)) {
+        return 'plugins/' . $plugin;
+    }
+}

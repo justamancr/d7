@@ -1,0 +1,4 @@
+name=To Do
+description= "Allows users to handle TODO list in a funny way"
+package = "Igniterz"
+core = 7.x

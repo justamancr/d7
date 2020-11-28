@@ -1,0 +1,5 @@
+name = Pill Pros helper
+description = General use module for simple hooks
+package = Igniterz
+core = 7.x
+

@@ -1,0 +1,128 @@
+<?php
+
+function paquetes_node_presave($node){
+  if( 0 && //mailer cannot work as there are no emails in the clients
+    // TODO: if there is email, then send. Do not send to
+    $node->status &&
+    $node->field_estado['und'][0]['value'] !=
+    $node->original->field_estado['und'][0]['value']){
+    //The node is published and delivery status has changed
+    if($node->field_estado['und'][0]['value'] == 'Ruta'){
+      $subject = 'Su paquete ['.$node->title.'] está en Ruta!';
+      $body = 'El día de hoy, un mensajero llegará a su dirección para entregar su paquete.';
+      $message = array(
+        'id' => 'drupal_mail_test',
+        'headers' => array('Content-type'=> 'text/html'),
+        'subject' => $subject,
+        'to' => 'correos@cycmultiservicios.com',
+        'from' => 'paquetes@cycmultiservicios.com',
+        'body' => $body,
+      );
+      //dpm('Correo enviado (notificación de paquete en Ruta).');
+      // Send the e-mail.
+      $response = drupal_mail_system('paquetes', 'paquetes_ruta')->mail($message);
+    }
+  }
+
+}
+
+
+/** Implements paquetes_webform_submission_insert
+ */
+function paquetes_webform_submission_insert($node, $submission) {
+  $happy = node_load(arg(1));
+  $happy->field_estado['und'][0]['value'] = $submission->data[1][0];
+  $msg = 'El estado cambió a '.$submission->data[1][0].' por '.$GLOBALS['user']->name.date("( l M d , Y h:i:s A )" , $GLOBALS['timers']['page']['start'] );
+
+  if ($submission->data[1][0] == 'Entregado' && !empty($submission->data[5][0]) ){
+    $msg .= "\nPersona que recibe: \"".$submission->data[5][0].'"';
+    if ($submission->data[5][0] == 'Otros'){
+      $msg .= ' ('.$submission->data[6][0].')';
+    }
+  }
+
+  $msg .= ' Detalle:'.$submission->data[2][0];
+  if (!empty ($happy->field_detalles['und'][0]['value']) ){
+    $msg =  $msg ."\n\n".$happy->field_detalles['und'][0]['value'];
+  }
+  $happy->field_detalles['und'][0]['value'] = $msg ;
+  node_save ($happy);
+}
+
+
+/**
+ * Implements hook_services_resources().
+ *
+ * Defines all the functions/operations this webform API endpoint supports.
+ */
+function paquetes_services_resources() {
+  return array(
+
+    'paquetes' => array(
+      'index' => array(
+        'help' => 'Paquetes filtrados por usuario, cyc_data',
+        'file' => array('type' => 'inc', 'module' => 'paquetes', 'name' => 'paquetes'),
+        'callback' => '_paquetes_api_listado',
+        'access callback' => 'user_access',
+        'access arguments' => array('access content'),
+        'access arguments append' => FALSE,
+        'args' => array(
+          array(
+            'name' => 'user',
+            'type' => 'string',
+            'description' => 'Node IDs',
+            'source' => array('param' => 'user'),
+            'optional' => FALSE,
+          ),
+          array(
+            'name' => 'pass',
+            'type' => 'string',
+            'description' => 'Node IDs',
+            'source' => array('param' => 'pass'),
+            'optional' => FALSE,
+          ),
+        ),
+      ),
+    ),
+
+    'mt_cambio' => array(
+      'create' => array(
+        'help' => 'Create a submission',
+        'file' => array('type' => 'inc', 'module' => 'paquetes', 'name' => 'paquetes'),
+        'callback' => '_paquetes_api_submission',
+        'access callback' => 'user_access',
+        'access arguments' => array('access content'),
+        'access arguments append' => FALSE,
+        'args' => array(
+          array(
+            'name' => 'submission',
+            'type' => 'array',
+            'description' => 'The submission object',
+            'source' => 'data',
+            'optional' => FALSE,
+          ),
+        ),
+      ),
+    ),
+
+    'mt_error' => array(
+      'create' => array(
+        'help' => 'Create an error log',
+        'file' => array('type' => 'inc', 'module' => 'paquetes', 'name' => 'paquetes'),
+        'callback' => '_paquetes_api_error',
+        'access callback' => 'user_access',
+        'access arguments' => array('access content'),
+        'access arguments append' => FALSE,
+        'args' => array(
+          array(
+            'name' => 'submission',
+            'type' => 'array',
+            'description' => 'The submission object. $type, $message, $variables = array(), $severity = WATCHDOG_NOTICE, $link = NULL',
+            'source' => 'data',
+            'optional' => FALSE,
+          ),
+        ),
+      ),
+    ),
+  );
+}

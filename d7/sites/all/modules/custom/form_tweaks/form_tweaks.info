@@ -1,0 +1,4 @@
+name = Form Tweaks
+description = Form tweaks for Igniterz.com
+core = 7.x
+package = Igniterz

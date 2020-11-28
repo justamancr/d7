@@ -1,0 +1,305 @@
+#megamenu{
+    height: 94px;
+    background-color: #F28E02;
+    padding-top: 10px;
+
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -o-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+#megamenu ul{
+    background-color: #FFF;
+    margin: 8px 0 8px 20px;
+    padding:0;
+    height:70px;
+
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -o-border-radius: 10px;
+    -webkit-border-radius: 10px;
+ }
+#megamenu ul.links li{
+    padding:0px;
+}
+.main-menu {
+    font-family: helvetica, sans-serif;
+    width:962px;
+    height:25px;
+    list-style:none;
+    margin:0 auto 0 auto;
+    padding:0;
+    border:0;
+    font-size:11px;
+    position:relative;
+    z-index:1000;
+}
+.main-menu a:hover {
+    color:#000000;
+}
+.main-menu h2 {
+    font-family: helvetica, sans-serif;
+    text-align:left;
+    font-size:16px;
+    font-weight:bold;
+    color: #333333;
+    margin:8px 0 12px 15px;
+}
+
+.main-menu li {
+    float:left;
+    display:block;
+    text-align:left;
+    padding: 0;
+    margin: 5px 0 0 0;
+    border-right:1px solid #8a8a8a;
+    border-left:1px solid #FFFFFF;
+    position:relative;
+}
+.main-menu li:hover {
+    border-right:1px solid #666666;
+    padding: 0;
+    background: #e7e7e7;
+    border-radius:10px 10px 0 0;
+    -moz-border-radius:10px 10px 0 0;
+    -o-border-radius:10px 10px 0 0;
+    -webkit-border-radius:10px 10px 0 0;
+}
+.main-menu li.first {
+    border-left: none;
+}
+.main-menu li.last   {
+    border-right: none;
+}
+
+li a.drop,
+li a.noShadow {
+    height:35px;
+    padding:23px 0 0 43px;
+    position: relative;
+    margin-top:0;
+    display:inline-block;
+    color:#191919;
+    text-decoration:none;
+    font-family: 'Signika Negative', sans-serif;
+    font-size:14px;
+    line-height:14px;
+    background:url(images/menu-main-icons.png) top left no-repeat scroll;
+    border-radius:10px 10px 0 0;
+    -moz-border-radius:10px 10px 0 0;
+    -o-border-radius:10px 10px 0 0;
+    -webkit-border-radius:10px 10px 0 0;
+}
+li:hover a.drop,
+li:hover a.noShadow {
+    color: #FFFFFF;
+    box-shadow:
+        0 0 0 rgba(0,0,0,0),                    /* Exterior Shadow */
+        inset 0 20px rgba(255,255,255,0.15),    /* Top light Line */
+        inset 0 0 rgba(255,255,255,0.3),        /* Top Light Shadow */
+        inset 0 0 0 rgba(255,255,255,0.25),     /* Sides Light Shadow */
+        inset 0 0 0 rgba(0,0,0,0.1);            /* Dark Background */
+
+    -moz-box-shadow:
+        0 0 0 rgba(0,0,0,0),
+        inset 0 20px rgba(255,255,255,0.15),
+        inset 0 0 rgba(255,255,255,0.3),
+        inset 0 0 0 rgba(255,255,255,0.25),
+        inset 0 0 0 rgba(0,0,0,0.1);
+
+    -o-box-shadow:
+        0 0 0 rgba(0,0,0,0),
+        inset 0 20px rgba(255,255,255,0.15),
+        inset 0 0 rgba(255,255,255,0.3),
+        inset 0 0 0 rgba(255,255,255,0.25),
+        inset 0 0 0 rgba(0,0,0,0.1);
+
+    -webkit-box-shadow:
+        0 0 0 rgba(0,0,0,0),
+        inset 0 20px rgba(255,255,255,0.15),
+        inset 0 0 rgba(255,255,255,0.3),
+        inset 0 0 0 rgba(255,255,255,0.25),
+        inset 0 0 0 rgba(0,0,0,0.1);
+}
+li a.noShadow:hover {
+    color: #000000;
+}
+
+.col_01, .col_02, .col_03{
+    float:left;
+    margin:10px 0;
+    display:inline-block;
+}
+.col_01 {
+    width:325px;
+}
+.col_02 {
+    width:333px;
+    border-left: 2px solid #DEDEDE;
+    border-right: 2px solid #DEDEDE;
+}
+.col_03 {
+    width:284px;
+}
+.dropdown {
+    position:absolute;
+    width: 962px;
+    margin:0 auto 0 1px;
+    left:-999em;  /* Hides the drop down */
+    text-align:left;
+    padding:0 0 3px 0;
+    border: none;
+    background:#e7e7e7;
+    border-radius: 0 0 10px 10px;
+    -moz-border-radius: 0 0 10px 10px;
+    -o-border-radius: 0 0 10px 10px;
+    -webkit-border-radius: 0 0 10px 10px;
+    z-index: 1;
+}
+
+.mega-content ul li{
+    float:none;
+    display:block;
+}
+
+.dropdown li:hover .megamenu{
+    left:0;   /* Show the drop down */
+    top:auto; /* Show the drop down */
+    background: url(images/menu-mega-icons.png) no-repeat;
+}
+
+.dropdown .mega-content {
+    background: #FFFFFF;
+    width: 870px;
+    height: 300px;
+    margin: 8px 7px 8px 75px;
+    display:inline-block;
+}
+
+/*
+  * MEGA-HOME
+*/
+
+.mega-home a.noShadow {
+    width:44px;
+    background-position: 10px -4px;
+}
+.mega-home a.noShadow:hover {
+    background-position: -390px -4px;
+}
+.mega-home a.noShadow:active {
+    background-position: -190px -4px;
+}
+
+.mega-home a.noShadow .page-home {
+    background-position: 16px -4px;
+    width:50px;
+    height:35px;
+    padding:23px 0 0 41px;
+    background-color: #FFFFFF;
+    color: #666666;
+}
+
+/*
+  * MEGA-1
+*/
+.mega-1 a.drop {
+    width:86px;
+    background-position: 10px -67px;
+}
+.mega-1:hover a.drop {
+    background-color: #2A6794;
+    background-position: -190px -67px;
+}
+.mega-1:hover .dropdown {
+    left:-90px;
+    top:auto;
+    background-color: #2A6794;
+    background-position: -100px -1px;
+}
+/*
+  * MEGA-2
+*/
+.mega-2 a.drop {
+    width:116px;
+    background-position: 10px -129px;
+}
+.mega-2:hover a.drop {
+    background-color: #9BA566;
+    background-position: -190px -129px;
+}
+
+.mega-2:hover .dropdown {
+    left: -221px;
+    top:auto;
+    background-color: #9BA566;
+    background-position: -969px 3px;
+}
+/*
+  * MEGA-3
+*/
+.mega-3 a.drop {
+    width:90px;
+    background-position: 10px -192px;
+}
+.mega-3:hover a.drop {
+    background-color: #C2552C;
+    background-position: -190px -192px;
+}
+.mega-3:hover .dropdown {
+    left:-382px;
+    top:auto;
+    background-color: #C2552C;
+    background-position: -1931px 2px;
+}
+/*
+  * MEGA-4
+*/
+.mega-4 a.drop {
+    width:155px;
+    background-position: 10px -257px;
+}
+.mega-4:hover a.drop {
+    background-color: #F8B037;
+    background-position: -190px -257px;
+}
+.mega-4:hover .dropdown {
+    left:-517px;
+    top:auto;
+    background-color: #F8B037;
+    background-position: -2886px 8px;
+}
+/*
+  * MEGA-5
+*/
+.mega-5 a.drop {
+    width:80px;
+    background-position: 10px -318px;
+}
+.mega-5:hover a.drop {
+    background-color: #6AB729;
+    background-position: -190px -318px;
+}
+.mega-5:hover .dropdown {
+    left:-717px;
+    top:auto;
+    background-color: #6AB729;
+    background-position: -3850px 8px;
+}
+/*
+  * MEGA-6
+*/
+.mega-6 a.drop {
+    width:78px;
+    background-position: 10px -380px;
+}
+.mega-6:hover a.drop {
+    background-color: #FF671B;
+    background-position: -190px -380px;
+}
+.mega-6:hover .dropdown {
+    left:-842px;
+    top:auto;
+    background-color: #FF671B;
+    background-position: -4810px 5px;
+}

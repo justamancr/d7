@@ -1,0 +1,472 @@
+/* FUENTES*/
+@font-face {
+	font-family: "GothamLight";
+	font-style: normal;
+	font-weight: normal;
+	src: local("?"), url("../fonts/GothamLight-webfont.woff") format("woff"), url("../fonts/GothamLight.ttf") format("truetype");
+}
+@font-face {
+	font-family: "angelina";
+	font-style: normal;
+	font-weight: normal;
+	src: local("?"), url("../fonts/angelina-webfont.woff") format("woff"), url("../fonts/angelina.ttf") format("truetype");
+}
+@font-face {
+	font-family: "StRyde-Regular";
+	font-style: normal;
+	font-weight: normal;
+	src: local("?"), url("../fonts/StRydePro-Regular-webfont.woff") format("woff"), url("../fonts/StRydePro-Regular.ttf") format("truetype");
+}
+
+
+
+
+.uk-h5,h5 {font-family: GothamLight, Tahoma, Geneva, sans-serif;}
+
+
+
+
+.header-top {
+	width:100%;
+	margin: 0px;
+	float:left;
+	height: 100vh;
+    line-height: 35px;
+	background:url(../images/tucan.jpg) center top fixed;
+	background-size:cover;
+}
+.header-top-where-to-go {
+	width:100%;
+	margin: 100px 0 0 0;
+	float:left;
+	height: calc(100vh - 100px);
+    line-height: 35px;
+	background:url(../images/background_wather.jpg) center top fixed;
+	background-size:cover;
+	position: relative;
+}
+.mapa-fondo-montain-where {
+	width:100%;
+	margin: 0px;
+	float: right;
+	height: calc(100vh - 100px);
+    line-height: 35px;
+	background:url(../images/costarica-map-where.png) top right no-repeat;
+	background-size:  auto  calc( 100% - 110px);
+	position:absolute;
+	bottom: 0;
+	right: 0;
+	z-index: 1;
+	visibility: visible;
+}
+
+.bloque-menues {
+	position:fixed;
+	top:0px;
+	left:0px;
+	width: 100%;
+	margin: 0px;
+	z-index: 999999999;
+}
+.barra-menu {
+	width:100%;
+	margin: 0px;
+	float:left;
+	color: #008636;
+	background:#FFF;
+}
+.menu-menu {
+	height: 100px;
+	float:left;
+	width:100%;
+}
+.contenido-foto {
+	position:absolute;
+	width: 100%;
+	bottom: 0px;
+	left: 0px;
+	background: rgba(0,0,0,0.5);
+}
+.contenido-mapa-where-to-go {
+position:absolute;
+	width: 100%;
+	top: 150px;
+	left: 0px;
+}
+
+.cuadro-image {
+	position:relative;
+}
+.cuadro-hover-image {
+	width: calc(100% - 20px);
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	z-index: 2;
+	color:rgba(0,0,0,0);
+	display:block;
+}
+.cuadro-hover-image:hover {
+	background-color: rgba(4,117,175,0.88);
+	color: white;
+	visibility: visible;
+}
+.cuadro-hover-image a,
+.cuadro-hover-image h5,
+.cuadro-hover-image p,
+.cuadro-hover-image i {
+	color: rgba(0,0,0,0);
+}
+div.cuadro-hover-image:hover a,
+div.cuadro-hover-image:hover h5,
+div.cuadro-hover-image:hover p,
+div.cuadro-hover-image:hover i {
+	color: white;
+}
+
+/* CUADRO IMAGE WHERE TO GO -- */
+.cuadro-image-where {
+	position:relative;
+}
+.cuadro-hover-image-where {
+	width: calc(100% - 20px);
+	height: 100%;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	z-index: 2;
+	color:rgba(0,0,0,0);
+	display:block;
+	background: url("../images/where-to-go/background_cuadros-where.svg") bottom left repeat-x;
+	background-size: 50px 50px;
+}
+.cuadro-hover-image-where:hover {
+	background-color: rgba(52,102,1,0.88);
+	background-image: none;
+	color: white;
+	visibility: visible;
+}
+.cuadro-hover-image-where a,
+.cuadro-hover-image-where h5,
+.cuadro-hover-image-where p,
+.cuadro-hover-image-where i {
+	color: rgba(0,0,0,0);
+}
+.cuadro-hover-image-where h6 {
+	color:#6cb33d;
+	position:absolute;
+	bottom: -2px;
+	left: 10px;
+	font-family: GothamLight;
+	font-size: 36px;
+	line-height: 0px;
+	display: table;
+}
+div.cuadro-hover-image-where:hover a,
+div.cuadro-hover-image-where:hover h5,
+div.cuadro-hover-image-where:hover p,
+div.cuadro-hover-image-where:hover i {
+	color: white;
+}
+div.cuadro-hover-image-where:hover h6 {
+	color: rgba(0,0,0,0);
+}
+div.cuadro-hover-image-where-icon {
+	width: 100%;
+	height: 120px;
+	position: absolute;
+	display: table-cell;
+	vertical-align: middle;
+	top: calc(50% - 60px);
+}
+
+/* WHERE TO GO */
+.where-to-go {
+	background: url(../images/where-to-go/pacific.jpg) no-repeat center top;
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	height: 90vh;
+	width:100%;
+	margin: 40px 0 0 0;
+}
+.where-to-go-2 {
+	background: url(../images/where-to-go/celeste.jpg) no-repeat center bottom fixed;
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	height: 70vh;
+	width:100%;
+	margin: 40px 0 0 0;
+}
+
+
+/* SECCIONES O DESTINOS WHERE TO GO */
+.central-valley-1 {
+	background: url(../images/where-to-go/central-valley-1.jpg) no-repeat center bottom fixed;
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	height: 70vh;
+	width:100%;
+	margin: 100px 0 0 0;
+}
+.central-valley-2 {
+	background: #000 repeat center bottom fixed;
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	height: 450px;
+	width:100%;
+	margin: 40px 0 0 0;
+	position: relative;
+}
+.map-hotels-1 {
+	background: url(../images/hotels/mapa-hoteles.jpg) no-repeat center bottom;
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	height: 70vh;
+	width:100%;
+	margin: 100px 0 0 0;
+}
+.map-hotels-2 {
+	background: url(../images/hotels/cartago.jpg) no-repeat center bottom;
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	height: 70vh;
+	width:100%;
+	margin: 100px 0 0 0;
+}
+.map-hotels-crowne {
+	background: url(../images/hotels/mapa-crowne-plaza.jpg) no-repeat center bottom;
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	height: 127px;
+	width:100%;
+	margin: 0px;
+}
+.barra-naranja {
+	overflow:visible;
+	height: 50px;
+	float:left;
+	width:100%;
+	margin: 30px 0 0 0;
+}
+.titulos-barra {
+	width: auto;
+	height: 50px;
+	color: white;
+	position: absolute;
+	top: 10px;
+	left: 0px;
+	z-index: 2;
+	display:block;
+	text-align:left;
+}
+.titulos-barra h5 {
+	line-height: 50px;
+	color: #fff;
+	font-size: 30px;
+}
+.titulos-barra-fondo {
+	min-height: 50px;
+	height: 50px;
+	width: 100vw;
+	position: absolute;
+	right:-40px;
+	top: 0px;
+	visibility:visible;
+	z-index: -1;
+}
+
+
+
+/* MAPA */
+.mapa-fondo {
+	width: 100%;
+	background: rgb(178,178,178); /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse cover,  rgba(178,178,178,1) 2%, rgba(89,89,89,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(2%,rgba(178,178,178,1)), color-stop(100%,rgba(89,89,89,1))); /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse cover,  rgba(178,178,178,1) 2%,rgba(89,89,89,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-radial-gradient(center, ellipse cover,  rgba(178,178,178,1) 2%,rgba(89,89,89,1) 100%); /* Opera 12+ */
+	background: -ms-radial-gradient(center, ellipse cover,  rgba(178,178,178,1) 2%,rgba(89,89,89,1) 100%); /* IE10+ */
+	background: radial-gradient(ellipse at center,  rgba(178,178,178,1) 2%,rgba(89,89,89,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b2b2b2', endColorstr='#595959',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	height: auto;
+	padding: 30px 0;
+	margin: 0px;
+}
+.mapa-vector {
+	background:url(../images/map/mapa-fondo.svg) top center;
+	background-size: contain;
+}
+
+
+/* MULTIMEDIA */
+.hero-video {
+	background: rgba(0, 0, 0, 0) url("../images/video-background-images.jpg") no-repeat scroll 0 0;
+	background-size: cover;
+}
+.hero .hero-video {
+    display: block;
+    height: auto;
+    left: 50%;
+    min-height: 100%;
+    min-width: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: auto;
+    z-index: 0;
+}
+.hero .hero-video video {
+    display: none;
+    height: 100%;
+    opacity: 0.2;
+    transition: all 0.5s ease 0s;
+    width: 100%;
+}
+@media screen and (max-width: 960px) {
+.hero .hero-video::before {
+    content: "";
+    filter: grayscale(100%);
+    height: 100%;
+    left: 50%;
+    opacity: 0.3;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 100%;
+}
+}
+@media screen and (min-width: 960px) {
+.hero .hero-video video {
+    display: block;
+}
+}
+
+
+
+
+.secc-multimedia {
+	height: 70vh;
+	min-height: 300px;
+	width:100%;
+	margin: 10px 0 0 0;
+	position:relative;
+}
+.no-video .video-container video,
+.touch .video-container video {
+  display: none;
+}
+.no-video .video-container .poster,
+.touch .video-container .poster {
+  display: block !important;
+}
+.video-container {
+  position: relative;
+  bottom: 0%;
+  left: 0%;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+}
+.video-container .poster img {
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+}
+.video-container .filter {
+  z-index: 100;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+}
+.video-container .title-container {
+  z-index: 1000;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+.video-container .video-description-home .inner {
+  font-size: 1em;
+  width: 45%;
+  margin: 0 auto;
+}
+.video-description-home {
+	position:absolute;
+	width:100%;
+	bottom: 20px;
+	height: auto;
+}
+.video-container .link {
+  position: absolute;
+  bottom: 3em;
+  width: 100%;
+  text-align: center;
+  z-index: 1001;
+  font-size: 2em;
+  color: #fff;
+}
+.video-container .link a {
+  color: #fff;
+}
+.video-container video {
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+}
+.video-container video.fillWidth {
+  width: 100%;
+}
+
+
+
+
+
+/* MENU QUE SE ACHICA */
+/* Size and center the menu */
+nav{ width: 960px; margin: 0 auto;}
+section.stretch{ float: left; height: 1500px; width: 100%; }
+section.stretch p{ text-align: center; position: relative; margin-top: 250px; }
+section.stretch p.bottom{ top: 100%; }
+header{ background:none; float: left; width: 100%; position: fixed; z-index: 10; }
+header a{ text-decoration: none; font-family: GothamLight,Tahoma,Geneva,sans-serif; text-transform: capitalize; font-size: 20px; }
+header a.active, header a:hover{ color: #3d3d3d; }
+header li{ margin-right: 30px; }
+.logo-centro { display: block; visibility:visible; overflow:visible; z-index:1; position:absolute; width: 100px; margin: 0 calc(50% - 100px);  height:70px; left:0px;}
+
+
+.footer-fondo {
+	background:#333;
+	margin: 0px;
+	padding: 40px 0 30px 0;
+	color:#FFF;
+}
+.footer-fondo a {
+	color: #00833E;
+}
+.footer-fondo li a:hover {
+	color:#FFF;
+	background:#00833E;
+}
+
+
+/* LOGOS FOOTER */
+.logos-footer {
+	padding: 30px 0 ;
+}

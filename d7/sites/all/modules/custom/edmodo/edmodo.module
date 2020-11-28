@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * Lets users add private annotations to nodes
+ * Adds a text field when a node is displayed
+ * so that authenticated users may make notes.
+ */
+
+/**
+ * Implementation of hook_menu()
+ */
+function edmodo_form_alter(&$form, &$form_state, $form_id) {
+    if ($form_id == 'response_node_form') {
+        $form['#validate'][] = 'check_duedate_form_validate';
+    }
+}
+
+function check_duedate_form_validate($form, &$form_state) {
+    $homework = node_load($form_state['values']['field_homework']['und'][0]['nid']);
+    dsm($homework);
+
+    if (0){
+        return false;
+    }
+}

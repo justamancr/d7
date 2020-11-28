@@ -1,0 +1,9 @@
+<?php
+
+function pillpros_feeds_after_parse($source,$result){
+    foreach ($result->items as &$item) {
+        if ( isset($item['Blank source 1']) ){
+            $item['Blank source 1'] = $result->link;
+        }
+    }
+}

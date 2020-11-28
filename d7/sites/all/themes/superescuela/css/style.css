@@ -1,0 +1,22 @@
+/**
+ * This file should get overwritten if Method 1 is used. If Method 2 is chosen,
+ * remove this comment and start adding your styles to this file.
+ */
+
+
+
+.emoji {
+    font-size:80px;
+}
+
+#home a:hover {
+    text-decoration: none;
+}
+
+.view-retos .view-content > div {
+    height:8em;
+}
+
+.view-actividades .view-content > div {
+    margin-top:6em;
+}

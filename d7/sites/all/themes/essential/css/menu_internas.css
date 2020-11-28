@@ -1,0 +1,28 @@
+/* Sizes for the bigger menu */
+header.large { height: 50px; background: #FFFFFF; line-height: 30px; }
+header.large .logo-centro {background:url(../images/logo_color.svg) center center no-repeat; bottom: 11px;}
+header.large img{ width: 100%; height: auto; margin-top: -10px; }
+header.large .collapse li { margin-top: 0px; }
+header.large li a { color: #008751; }
+header.large a { color: #008751; margin: 0 8px;}
+header.large h5 { margin-left: 205px; }
+header.large .logo-esential:before {content:url(../images/logo_color.svg);}
+header.large .a-link-logo { margin-top: -31px; text-decoration:none;}
+header.large .a-link-logo:hover { background: none;}
+/* Sizes for the smaller menu */
+header.small{ height: 50px; background: #FFFFFF; line-height: 30px; }
+header.small .logo-centro {background:url(../images/logo_color.svg) center center no-repeat; bottom: 11px;}
+header.small img{ width: 100%; height: auto; margin-top: -10px; }
+header.small .collapse li { margin-top: 0px; }
+header.small li a { color: #008751; }
+header.small a { color: #008751; margin: 0 8px;}
+header.small h5 { margin-left: 205px; }
+header.small .logo-esential:before {content:url(../images/logo_color.svg);}
+header.small .a-link-logo { margin-top: -31px; text-decoration:none;}
+header.small .a-link-logo:hover { background: none;}
+header,nav, a, img, li{
+  transition: all 1s;
+  -moz-transition: all 1s; /* Firefox 4 */
+  -webkit-transition: all 1s; /* Safari and Chrome */
+  -o-transition: all 1s; /* Opera */
+}

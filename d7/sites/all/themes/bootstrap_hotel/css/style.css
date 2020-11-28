@@ -1,0 +1,38 @@
+/**
+ * This file should get overwritten if Method 1 is used. If Method 2 is chosen,
+ * remove this comment and start adding your styles to this file.
+ */
+
+.navbar {
+    margin-bottom:0;
+}
+.navbar.container, .navbar.container-fluid{
+    margin-top:0;
+}
+
+.page-header {
+    padding-bottom: 0px;
+    margin: 0;
+}
+
+.view-hotels .views-row{
+    margin-bottom:1em;
+}
+.view-hotels .views-field-body {
+    min-height:3em;
+}
+
+#views-exposed-form-hotels-page .views-exposed-form .views-exposed-widget .btn ,
+#views-exposed-form-hotels-page .views-exposed-form .views-exposed-widget .form-submit {
+    margin-top: 0;
+}
+#views-exposed-form-hotels-page .views-exposed-form .views-exposed-widget .form-control.form-select {
+    width:100px;
+}
+
+.view-costa-rica {
+    margin:0 -15px;
+}
+.view-costa-rica img{
+    width:100%;
+}

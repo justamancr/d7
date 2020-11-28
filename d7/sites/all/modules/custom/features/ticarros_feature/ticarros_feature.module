@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Ticarros feature.
+ */
+
+include_once 'ticarros_feature.features.inc';

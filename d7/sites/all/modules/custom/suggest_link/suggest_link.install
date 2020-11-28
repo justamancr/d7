@@ -1,0 +1,38 @@
+<?php
+
+
+function suggest_link_schema(){
+  $schema['igniterz_suggest'] = array (
+    'description'=> 'Stores suggested links for later cron processing.',
+    'fields' => array(
+      'url' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null'=> TRUE,
+        'description' => t('Suggested URL'),
+      ),
+      'uid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'size' => 'normal',
+        'not null'=> TRUE,
+        'description' => t('Suggesting userID'),
+      ),
+      'source' => array(
+        'type' => 'char',
+        'length' => 16,
+        'not null'=> TRUE,
+        'description' => t('Suggesting tool'),
+      )
+    )
+  );
+  return $schema;
+}
+
+function suggest_link_install(){
+
+}
+
+function suggest_link_uninstall(
+
+){}

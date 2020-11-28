@@ -1,0 +1,77 @@
+<?php
+
+function suggest_link_menu(){
+  $items['igniterz/suggest'] = array(
+    'title'=> 'Suggest me a Link',
+    'description'=> 'Receives, stores and help moderate submited ursl',
+    'page callback'=>array('suggest_link_port'),
+    'access arguments' => array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+    'weight'=> -5
+  );
+  return $items;
+}
+
+function suggest_link_port (){
+  //sanitice url, trim and clean
+  //compare with blacklist (domain blacklist and url blacklist)
+  //compare with existing ones
+  //verify link is not broken
+
+  $suggestUrl = (isset ($_GET['url']) )? ($_GET['url']): '';
+  $suggestUid = (isset ($_GET['uid']) )? ($_GET['uid']): '';
+  $suggestTool = (isset ($_GET['tool']) )? ($_GET['tool']): 'bookmarklet';
+
+  $table = 'igniterz_suggest';
+  $record = new stdClass();
+  $record->url = $suggestUrl;
+  $record->uid = $suggestUid;
+  $record->source = $suggestTool;
+  drupal_write_record($table,$record);
+
+  echo $suggestUrl;
+  echo $suggestUid;
+  if($suggestTool == 'bookmarklet'){ // @TODO and if domain is not csstocss.com
+    drupal_goto($suggestUrl, array('external' => TRUE));
+  }else{//internal suggestion
+    drupal_goto();
+  }
+  return;
+}
+
+
+function suggest_link_block_info() {
+  $blocks['suggest_link'] = array(
+    'info' => t('Suggest a link!'),
+    'region' => 'second_sidebar',
+  );
+  return $blocks;
+}
+
+function suggest_link_block_view($delta = '') {
+  global $user;  // The $delta parameter tells us which block is being requested.
+  $destination = request_uri();
+
+  switch ($delta) {
+    case 'suggest_link':
+      // Create your block content here
+      $block['subject'] = t('Suggest a link!');
+      $block['content'] = ' Suggest a link for our editors to check!
+        <form action="/igniterz/suggest/" method="get">
+          <input name="url" type="text">
+          <input type="hidden" name="uid" value="'. $user->uid .'">
+          <input type="hidden" name="tool" value="sidebar">
+          <input type="hidden" name="destination" value="'.$destination .'">
+          <input type="submit" value="Suggest">
+        </form>
+<br><br>
+        <script>function dragme() {window.alert("This is a bookmarklet. Drag it to your bookmarks bar and then click it to suggest awesome CSS resources!")}</script>
+        <p> You can drag this bookmarklet into your bookmarks bar, then click it whenever you find some cool CSS resources. An editor will check your suggestion out.</p>
+        <a target="_blank" id="bookmarklet" href="javascript:location.href=\'http://csstocss.com/igniterz/suggest/?url=\'+encodeURIComponent(location.href)+\'&tool=bookmarklet&uid=\'+'.$user->uid.'" onclick="dragme(); return false"><span class="bookmarklet">Bookmarklet!</a>
+      ';
+      break;
+  }
+  return $block;
+}
+
+

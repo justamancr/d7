@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * @file
+ * Basic cart module file.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function basic_cart_extra_theme() {
+  return array(
+    'basic_cart_cart_mini_render_block' => array(
+      'template' => 'basic_cart_cart_mini_render_block',
+      'variables' => array('cart' => NULL, 'price' => NULL, 'vat' => NULL),
+    ),
+  );
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function basic_cart_extra_block_info() {
+  $blocks['shopping_cart_mini'] = array(
+    'info' => t('Shopping cart mini'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function basic_cart_extra_block_view($delta = '') {
+  // Check if the current user has access.
+  switch ($delta) {
+    case 'shopping_cart_mini':
+      if (user_access('use basic cart')) {
+        // Price format.
+        module_load_include('inc', 'basic_cart', 'basic_cart.cart');
+        $price = basic_cart_get_total_price();
+        $total = basic_cart_price_format($price->total);
+        $options = array(
+          'cart' => basic_cart_get_cart(),
+          'price' => $total,
+        );
+        // Checking the VAT.
+        $vat_is_enabled = (int) variable_get('basic_cart_vat_state');
+        if (!empty ($vat_is_enabled) && $vat_is_enabled) {
+          $options['vat'] = basic_cart_price_format($price->vat);
+        }
+        
+        $block['subject'] = t('Your mini cart');
+        $block['content'] = theme('basic_cart_cart_mini_render_block', $options);
+        return $block;
+      }
+      break;
+  }
+}

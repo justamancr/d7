@@ -1,0 +1,6 @@
+name = SimpleSocial
+description = "Simple social buttons"
+package = Igniterz
+core = 7.x
+
+stylesheets[all][] = simplesocial.css

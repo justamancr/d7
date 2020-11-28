@@ -1,0 +1,18 @@
+<?php
+
+/* Implements hook_form_alter
+ */
+function form_tweaks_form_alter(&$form, &$form_state, $form_id) {
+  //print ($form_id);
+  //var_dump($form);
+  if($form_id=="views_exposed_form"){
+    $form["region"]['#options']["All"] = '¿Dónde?';
+    $form["tema"]['#options']["All"] = '¿Qué?';
+    $form["precio"]['#options']["All"] = '¿Cuánto?';
+    $form["scr_etapa"]['#options']["All"] = 'Etapa';
+    $form["scr_busca"]['#options']["All"] = 'Busca';
+    $form["scr_nivel"]['#options']["All"] = 'Nivel';
+    $form["scr_pro"]['#options']["All"] = 'Habilidad';
+    $form["scr_interes"]['#options']["All"] = 'Intereses';
+  }
+}

@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ *
+ * CRPromo helper module
+ */
+
+function crpromo_node_view($node, $view_mode, $langcode) {
+    if($node->status == 0) {
+        drupal_set_message('Esta Promo NO ES VÁLIDA, posiblemente ya esté vencida. Abajo aparecen promociones similares, y con los filtros de arriba puedes realizar una nueva búsqueda', 'warning');
+    }
+}

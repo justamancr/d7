@@ -1,0 +1,4 @@
+name = Edmodo
+description = "Custom Code for Edmodo skills test"
+package = "Igniterz"
+core = 7.x

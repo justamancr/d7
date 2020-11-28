@@ -1,0 +1,44 @@
+/**
+ * This file should get overwritten if Method 1 is used. If Method 2 is chosen,
+ * remove this comment and start adding your styles to this file.
+ */
+
+.category {
+    float: left;
+    padding: 0.2em 0.6em;
+}
+
+.logo img{
+    width:17em;
+}
+
+.view-products .product {
+    border: 1px #ddd solid;
+    padding: 1em;
+    margin: 1em;
+}
+
+.basic-cart-cart-checkout-button a,
+.buy-now {
+    background-color: #FF7F50;
+    border: none;
+    color: white;
+    padding: 0.5em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.basic-cart-cart-checkout-button a:hover,
+a.buy-now:hover{
+    color:white;
+}
+
+.free-shipping{
+    float:right;
+    width:80px;
+}

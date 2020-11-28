@@ -1,0 +1,10 @@
+name = Weather
+description = "Weather."
+package = "Igniterz"
+core = 7.x
+files[] = weather.module
+scripts[] = weather.js
+dependencies[] = panels
+dependencies[] = page_manager
+configure = admin/config/content/weather
+ 

@@ -1,0 +1,53 @@
+/**
+ * This file should get overwritten if Method 1 is used. If Method 2 is chosen,
+ * remove this comment and start adding your styles to this file.
+ */
+header#navbar{
+    background-color: black;
+}
+
+.logo img {
+    width: 12em;
+    margin-right: 9em;
+}
+
+#views-exposed-form-promos-page .views-exposed-widgets{
+    margin-top: 1.5em;
+}
+
+.views-exposed-form .views-exposed-widget {
+    float: left;
+    padding: .5em 1em 0 0;
+}
+
+.view-viral-promos .views-field-field-promo-calificacion,
+.view-promos .views-field-field-promo-calificacion {
+    position: absolute;
+    bottom: 1em;
+    left: 2em;
+}
+
+.view-viral-promos .views-field-path,
+.view-promos .views-field-path {
+    position: absolute;
+    bottom: 1em;
+    right: 2em;
+}
+
+.view-viral-promos .col-sm-4,
+.view-promos .col-sm-4 {
+    margin-bottom:2em;
+}
+
+#views-exposed-form-promos-page .views-exposed-widget {
+    width: 14em;
+}
+
+
+.navbar.container-fluid{
+    margin:0;
+}
+
+.field-name-body{
+    height:10em;
+}

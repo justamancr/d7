@@ -1,0 +1,49 @@
+<?php
+
+function flag_extra_flag_flag($flag, $content_id, $account, $flagging) {
+    //add the node flagged to user profile
+    $user = user_load($account->uid);
+    $user->field_seguidor['und'][]=array('nid'=>$content_id);
+    user_save($user);
+}
+
+function flag_extra_flag_unflag($flag, $content_id, $account, $flagging) {
+    //remove the node flagged from user profile
+    $user = user_load($account->uid);
+    foreach( $user->field_seguidor['und'] as $node_ref_key => $node_ref){
+        if ($node_ref['nid']==$content_id ){
+            unset ($user->field_seguidor['und'][$node_ref_key]);
+        }
+    }
+    user_save($user);
+}
+
+function flag_extra_user_update(&$edit, $account, $category){
+    if (isset ($edit['field_seguidor'])) {
+        $old_flags = array();
+        if (isset($edit['original']->field_seguidor['und'])) {
+            $old_flags = $edit['original']->field_seguidor['und'];
+        }
+        $new_flags = array();
+        if (isset($edit['field_seguidor']['und'])) {
+            $new_flags = $edit['field_seguidor']['und'];
+        }
+
+        foreach ($old_flags as $old_flags_key => $old_flags_value) {
+            foreach ($new_flags as $new_flags_key => $new_flags_value) {
+                if ($old_flags_value['nid'] == $new_flags_value['nid']) {//item was unchanged, leave it alone
+                    unset ($old_flags [$old_flags_key]);
+                    unset ($new_flags [$new_flags_key]);
+                }
+            }
+        }
+        $flag = flag_get_flag('favorito');
+
+        foreach ($new_flags as $new_flag) {
+            $flag->flag('flag', $new_flag['nid']);//add flag
+        }
+        foreach ($old_flags as $old_flag) {
+            $flag->flag('unflag', $old_flag['nid']); // Unflag node
+        }
+    }
+}

@@ -1,0 +1,4 @@
+name = Suggest link
+description = "Url suggestion"
+package = "Igniterz"
+core = 7.x

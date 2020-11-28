@@ -1,0 +1,239 @@
+/**
+ * This file should get overwritten if Method 1 is used. If Method 2 is chosen,
+ * remove this comment and start adding your styles to this file.
+ */
+
+a {
+    color:#3b5d6a;
+    font-weight: bold;
+}
+
+#block-system-main-menu{
+    clear:both;
+}
+
+#block-system-main-menu,
+#block-block-1 {
+    float:right;
+}
+#block-menu-menu-terms-and-conditions{
+    bottom:0;
+}
+
+#block-system-main-menu ul,
+#block-menu-menu-terms-and-conditions ul,
+#block-menu-menu-social-links ul,
+#block-block-1 ul {
+    list-style: none;
+}
+
+#block-system-main-menu ul li,
+#block-menu-menu-terms-and-conditions ul li,
+#block-menu-menu-social-links ul li,
+#block-block-1 ul li{
+    float: left;
+    padding: 0 1em;
+}
+
+#navbar{
+    position:absolute;
+    z-index: 100;
+}
+
+#navbar ul{
+    font-size: 1.1em;
+    text-shadow: 0px 0px #39b5a4;
+}
+#navbar a{
+    color:white;
+    font-weight: bold;
+}
+
+
+.node-page .field-name-field-image img,
+.node-article .field-name-field-image img,
+.node-location .field-name-field-image img,
+.node-product .field-name-field-image img{
+    width: 100%;
+}
+
+#block-block-2{
+    background-image: url("../images/greenway_home.jpg");
+    background-size: 100%;
+}
+
+#block-block-5 {
+    background-size: 100%; background-image:url('https://lonelyplanetwp.imgix.net/2015/04/monteverde-68248b1503e5.jpg');
+    font-size:3em;
+    padding:2em;
+}
+
+#block-block-10{
+    background-image: url("../images/lego_team.jpg");
+    background-size: cover;
+    width: 100%;
+    height:30em;
+}
+
+#block-block-7,
+#block-views-front-page-testimonials-block{
+    margin: 2em 0;
+    width: 100%;
+    color: white;
+    background-image: url("http://concordiansaverainforest.org/wp-content/uploads/2016/03/rainforest1.jpg");
+    background-size: cover;
+}
+
+#block-views-front-page-testimonials-block .views-row{
+    float: none;
+    margin: 10em auto;
+}
+#block-views-front-page-testimonials-block .views-field-name a{
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 1em;
+}
+#block-block-7 .greenway-difference{
+    float: none;
+    margin: 6em auto;
+}
+
+#block-views-locations-block{
+    background-image: url("../images/greenway_locations.png");
+    background-size: cover;
+    width: 100%;
+}
+
+#block-views-locations-block .ctools-jump-menu-select{
+    width: 16em;
+    margin: 190px auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 1em;
+    color: white;
+    height: 4em;
+    padding-left: 2em;
+}
+
+#block-views-sub-products-block{
+    margin: 2em 0;
+}
+
+.overlay-box {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1em;
+    border-radius: 1em;
+    color:white;
+}
+
+header#navbar{
+    background-color: rgba(0, 0, 0, 0.5);
+    color:white;
+}
+
+.overlay-box h2 {
+    color:white
+}
+
+.footer{
+    background-color: #3b5d6a;
+    color:white;
+}
+
+.field-name-body{
+    padding:2em;
+}
+
+.footer a,
+.footer h2{
+    color:white;
+}
+
+.col-sm-12 {
+    padding: 0;
+}
+
+#block-views-products-block,
+#block-views-carrier-logos-block,
+.region-fly-catcher{
+    margin:10em 1em;
+}
+
+#locations-menu{
+    height: 6em;
+}
+
+#block-views-products-block .overlay-box {
+    position: absolute;
+    bottom: 2em;
+    right: 3em;
+}
+
+#block-views-products-block .overlay-box a{
+    color:white;
+    font-size: 2em;
+}
+
+#block-block-8{
+    position: absolute;
+    right: 3em;
+    top: 10em;
+    background: #39b54a;
+    padding: 1em;
+}
+
+#block-block-8 a {
+    color: white;
+    font-size: 2em;
+    padding: 1em;
+}
+
+
+.view-articles .article-text,
+.view-sub-products .views-field-title{
+    position: absolute;
+    bottom: 2em;
+    left: 0;
+    margin: 0 2em;
+}
+
+.view-articles .article-text a,
+.view-sub-products .views-field-title a{
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+}
+
+.view-articles .article-text a.views-more-link{
+    font-size: 1em;
+}
+
+.view-location-agents{
+    margin: 4em;
+}
+
+.profile .field-name-field-full-name,
+.view-location-agents .views-field-field-full-name{
+    font-size: 2em;
+    padding: 1em;
+    color: #3b5d6a;
+    font-weight: bold;
+}
+
+.view-location-agents .views-field-field-image{
+    float:right;
+}
+
+.profile{
+    margin: 4em;
+}
+
+.profile .field-name-field-image{
+    float:right;
+    margin:2em;
+}
+
+.profile .field{
+    padding:1em;
+}
+

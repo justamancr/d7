@@ -1,0 +1,4 @@
+name = CRPromo
+description = "CRPromo helper module"
+package = "Igniterz"
+core = 7.x

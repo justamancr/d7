@@ -1,0 +1,5 @@
+name = paquetes
+description = "Sistema de tracking de paquetes para Fabian Centeno"
+package = "marketing.top"
+core = 7.x
+

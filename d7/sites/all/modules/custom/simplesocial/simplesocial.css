@@ -1,0 +1,44 @@
+.simple-social-mini{
+    position:absolute;
+    right:2em;
+    top:2em;
+}
+.simple-social-mini .social-item{
+    height:3em;
+    float:left;
+}
+.simple-social-mini .fb-share,
+.simple-social-mini .twitter,
+.simple-social-mini .gplus{
+    padding: 10px 20px;
+    margin: 1px;
+}
+.simple-social-mini a.fb-share {
+    background-image: url("images/facebook_blue_still.png");
+    background-position: center left;
+    background-color: #34559d;
+}
+
+.simple-social-mini a.fb-share:hover {
+    background-image: url("images/facebook_animated.gif");
+    background-color: #34559d;
+}
+.simple-social-mini a.twitter {
+    background-image: url("images/twitter_blue_still.png");
+    background-position: center left;
+    background-color: #01abf1;
+}
+.simple-social-mini a.twitter:hover {
+    background-image: url("images/twitter_animated.gif");
+    color: #33c5f3;
+}
+
+.simple-social-mini a.gplus {
+    background-image: url("images/gplus-red-still.png");
+    background-position: center left;
+    background-color: #DD4B39;
+}
+.simple-social-mini a.gplus:hover {
+    background-image: url("images/gplus-red-still.png");
+    color: #DD4B39;
+}

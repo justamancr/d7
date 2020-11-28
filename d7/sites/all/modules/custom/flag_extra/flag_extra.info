@@ -1,0 +1,5 @@
+name = Flag Extra
+description = Extra stuff for flag module
+package = Igniterz
+dependencies[] = flag
+core = 7.x

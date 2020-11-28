@@ -1,0 +1,89 @@
+<?php
+
+function todo_cron(){
+  $nodes = entity_load('node', FALSE, array('type' => 'task'), FALSE);
+  $todayDate = ( date("Y-m-d",time()));
+  foreach($nodes as $task){
+    if($task->field_task_duedate[$task->language][0]["value"] < $todayDate && ($task->field_task_todo[$task->language][0]["value"] == 'To Do' || $task->field_task_todo[$task->language][0]["value"] == 'On hold' )){
+      $task->field_task_duedate[$task->language][0]["value"] = $todayDate;
+      node_save($task);
+    }
+  }
+}
+
+function todo_menu(){
+  $items['node/%/done'] = array(
+    'page callback'=>array('todo_done'),
+    'type' => MENU_CALLBACK,
+    'access arguments' => array('access content')
+  );
+  $items['node/%/kick'] = array(
+    'page callback'=>array('todo_kick'),
+    'type' => MENU_CALLBACK,
+    'access arguments' => array('access content')
+  );
+  $items['node/%/up'] = array(
+    'page callback'=>array('todo_up'),
+    'type' => MENU_CALLBACK,
+    'access arguments' => array('access content')
+  );
+  $items['node/%/down'] = array(
+    'page callback'=>array('todo_down'),
+    'type' => MENU_CALLBACK,
+    'access arguments' => array('access content')
+  );
+  return $items;
+}
+
+function todo_done (){
+  $nid = arg(1);
+  $nodes = entity_load('node',array($nid) );
+  $node = array_pop($nodes);
+  $node->field_task_todo[$node->language][0]["value"]= "Done";
+  node_save($node);
+  drupal_goto();
+}
+
+function todo_kick (){
+  $nextWeek = ( date("Y-m-d",time() + (7 * 24 * 60 * 60) )." 06:00:00");
+  $nid = arg(1);
+  $nodes = entity_load('node',array($nid) );
+  $node = array_pop($nodes);
+  $node->field_task_duedate[$node->language][0]["value"] = $nextWeek;
+  node_save($node);
+  drupal_goto();
+}
+
+function todo_up(){
+  $nid = arg(1);
+  $nodes = entity_load('node',array($nid) );
+  $node = array_pop($nodes);
+  $newValue="";
+  switch ($node->field_task_priority[$node->language][0]["value"]){
+    case "20": $newValue = "15"; break;
+    case "15": $newValue = "10"; break;
+    case "10": $newValue = "05"; break;
+    case "05": $newValue = "00"; break;
+  }
+  $node->field_task_priority[$node->language][0]["value"] = $newValue;
+
+  node_save($node);
+  drupal_goto();
+}
+
+function todo_down(){
+  $nid = arg(1);
+  $nodes = entity_load('node',array($nid) );
+  $node = array_pop($nodes);
+  $newValue="";
+  switch ($node->field_task_priority[$node->language][0]["value"]){
+    case "00": $newValue = "05"; break;
+    case "05": $newValue = "10"; break;
+    case "10": $newValue = "15"; break;
+    case "15": $newValue = "20"; break;
+  }
+  $node->field_task_priority[$node->language][0]["value"] = $newValue;
+
+  node_save($node);
+  drupal_goto();
+}

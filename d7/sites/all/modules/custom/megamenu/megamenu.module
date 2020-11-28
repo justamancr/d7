@@ -1,0 +1,45 @@
+<?php
+
+
+/**
+ * Implementation of hook_theme().
+ *
+ */
+
+function megamenu_theme(){
+  return array(
+    'megamenu_block'=> array(
+      'arguments'=>array(),
+      'template' => 'megamenu_block'
+    ),
+  );
+
+}
+
+
+/**
+ * Implements hook_block().
+ *
+ */
+function megamenu_block($op = 'list', $delta = 0, $edit = array()){
+  switch ($op){
+    case 'list' :
+      $blocks ['megamenu'] = array(
+        'info' => t('Megamenu')
+      );
+      return $blocks;
+    case 'view' :
+      if ($delta == 'megamenu'){
+       drupal_add_css(drupal_get_path('module','megamenu').'/megamenu.css');
+        $block['subject'] = t('Megamenu');
+        $block['content'] = theme ('megamenu_block',megamenu_controller() );
+      }
+      return $block;
+      break;
+  }
+}
+
+function megamenu_controller(){
+  return array(1);
+}
+

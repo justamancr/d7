@@ -1,0 +1,4 @@
+name = Basic Cart Extra
+description = A basic shopping cart implementation. Extra simple block
+package = Igniterz
+core = 7.x

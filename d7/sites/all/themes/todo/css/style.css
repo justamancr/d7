@@ -1,0 +1,22 @@
+/**
+ * This file should get overwritten if Method 1 is used. If Method 2 is chosen,
+ * remove this comment and start adding your styles to this file.
+ */
+body{
+}
+
+.region-content{
+  background-color: #FFF;
+  opacity: 0.9;
+  padding: 2em;
+}
+
+#block-views-to-do-block{
+    background: white;
+    margin: 3px 3px 0 0;
+    padding: 10px;
+}
+
+.view-tasks ul {
+    list-style-type: none;
+}

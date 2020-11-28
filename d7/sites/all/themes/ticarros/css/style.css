@@ -1,0 +1,56 @@
+/**
+ * This file should get overwritten if Method 1 is used. If Method 2 is chosen,
+ * remove this comment and start adding your styles to this file.
+ */
+
+a.name.navbar-brand{
+  margin-left:-2em;
+}
+
+.views-field.views-field-field-marca,
+.views-field.views-field-field-marca  {
+    float: left;
+    padding: 0 0.4em;
+}
+
+div#widget_pager_top_car_detail-block img {
+    float: left;
+    margin: 0 0.5em 0.5em 0;
+}
+
+.view-car-detail .views-slideshow-controls-top img{
+    width: 11.75%;
+}
+
+#views_slideshow_cycle_main_car_detail-block .views-slideshow-cycle-main-frame-row-item {
+    padding:0;
+    margin:0;
+}
+
+.view-carros .view-content{
+    display: inline-block;
+    width:100%;
+}
+
+.view-carros .views-row{
+    padding:0.5em;
+}
+
+a.cars-logo {
+    margin-top:0;
+    margin-bottom:0;
+}
+
+a.cars-logo img {
+    height: 41px;
+    margin-right: 1em;
+    float:left;
+}
+
+div.view-carros ul.pagination {
+    margin:0;
+}
+
+div.node-carro div.group-right {
+    padding:1em;
+}
