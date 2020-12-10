@@ -1,12 +1,26 @@
 <?php
 
+// Path /tome/mt_cambio
+// request: {"edited": [{"nid": "15389","id": "1231234", "status": "Entregado", "receiver": "Titular", "others": "", "description": "" } ], "user": { "username": "judas", "password": "d3m0", "location": { "latitude": "9.9662418", "longitude": "-84.2324159", "place": "Costa Rica Provincia de Alajuela Calle Los Portones" }, "time": "Mon Oct 26 2020 20:27:55 GMT-0600 (Central Standard Time)" } }
 function _paquetes_api_submission($submission){
-  $user_location = $submission['user']['location'];
   watchdog('paquetes_cambio','<pre>@print_r</pre>',array('@print_r' => print_r( $submission,TRUE) ) );
+
   foreach ($submission['edited'] as $edit){
     $happy = node_load($edit['nid']);
-    $msg = '*'. $submission['user']['username'].'* cambió el estado de *'.$happy->field_estado['und'][0]['value'].'* a *'.$edit['status'].'* a las: '.date("l M d , Y h:i:s A" , $GLOBALS['timers']['page']['start'] );
-    $msg .=  "\n".'Hora del app: '.$submission['user']['time']. "\n".'Ubicacion del app: '.$user_location['place'].' ('.$user_location['latitude'].','.$user_location['longitude'].').';
+
+    $msg = '*'. $submission['user']['username'].'* cambió el estado de *'.$happy->field_estado['und'][0]['value'].'* a *'.$edit['status'];
+    $msg .= '* a las: '.date("l M d , Y h:i:s A" , $GLOBALS['timers']['page']['start'] )."\n".'Hora del app: '.$submission['user']['time'];
+    if ( isset ($submission['user']['location']) ) {
+      $default_location = array ('lat'=>9.9662418,'lng'=>-84.2324159);
+      $location = array();
+      $location['lat'] = $submission['user']['location']['latitude'] ?:$default_location['lat'];
+      $location['lng'] = $submission['user']['location']['longitude'] ?:$default_location['lng'];
+
+      //watchdog('paquetes_cambio_node','<pre>@print_r</pre>',array('@print_r' => print_r( $happy->field_ubicacion_entregado,TRUE) ) );
+      $msg .= "\n".'Ubicacion del app: '.$submission['user']['location']['place'].' ('.$location['lat'].','. $location['lng'].').';
+      $happy->field_ubicacion_entregado['und'][0]['lat'] = $location['lat'];
+      $happy->field_ubicacion_entregado['und'][0]['lng'] = $location['lng'];
+    }
 
     if ($edit['status'] == 'Entregado' && !empty($edit['receiver']) ){
       $msg .= "\nPersona que recibe: \"".$edit['receiver'].'"';
