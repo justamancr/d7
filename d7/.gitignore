@@ -1,0 +1,10 @@
+# Ignore configuration files that may contain sensitive information. 
+d7/sites/*/settings*.php 
+d7/sites/*/files/styles
+d7/sites/*/files/css 
+d7/sites/*/files/js 
+d7/sites/*/private 
+d7/.htaccess
+
+!.gitignore
+.idea
